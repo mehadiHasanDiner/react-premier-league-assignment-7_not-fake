@@ -3,18 +3,18 @@ import logo2 from './image/logo2.png'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react';
-import playerData from './data/data.json';
 import Player from './components/Players/Player';
 import Haired from './components/Haired/Haired';
 
 
 function App() {
+  const [players, setPlayers] = useState([]);
   const [playerCart, setPlayerCart] = useState([]);
 
-  const [players, setPlayers] = useState([]);
-  useEffect(() => {
-    setPlayers(playerData);
-    // const names = playerData.map(player =>player.name);
+  useEffect(() =>{
+    fetch('https://pacific-stream-02941.herokuapp.com/players')
+    .then(res => res.json())
+    .then(data => setPlayers(data))
   }, [])
 
   const handlePlayerAdd = (info) => {
@@ -48,6 +48,7 @@ function App() {
         </nav>
         <div className="mt-4 col col-lg d-flex">
           <div>
+            {/* <button onClick={handleAddPlayer}>Add Player</button> */}
             <h3>Number of Total Cricketers : {players.length}</h3>
 
             {

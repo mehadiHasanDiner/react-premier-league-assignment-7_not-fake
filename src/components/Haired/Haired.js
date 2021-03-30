@@ -16,7 +16,7 @@ const Haired = (props) => {
             <p>Total Amount of Salary : {totalSalary.toFixed(2)}</p>
             
             {
-                playerCart.map(perSalary =><p> {perSalary.name} Total Salary = $ {perSalary.salary}</p>)
+                playerCart.map(perSalary =><p>  {perSalary.name} Total Salary = $ {perSalary.salary} </p>)
             }
 
             
